@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-// Middleware function to verify JWT token
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1]; // 'Bearer <token>'

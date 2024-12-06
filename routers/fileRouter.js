@@ -6,4 +6,5 @@ const router = express.Router();
 router.post('/upload', fileController.upload.single('file'), fileController.uploadFile);
 router.get('/images', fileController.getAllImages);
 router.post('/images',fileController.sendImageBySerialNumber)
+router.delete('/images',fileController.deleteImageBySerialNumber)
 module.exports = router;
