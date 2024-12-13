@@ -16,6 +16,13 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 
+app.use(
+  cors({
+    origin: process.env.FRONTENT_URL || 'http://localhost:5173', 
+    credentials: true, 
+  })
+);
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/file', fileRouter);

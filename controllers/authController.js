@@ -1,4 +1,4 @@
-const { initializeDbAndServer } = require("../db"); // Import the db from db.js
+const { initializeDbAndServer } = require("../db"); 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 

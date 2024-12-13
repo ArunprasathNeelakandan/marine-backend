@@ -4,7 +4,7 @@ const dotenv = require('dotenv'); // Import dotenv to load environment variables
 
 dotenv.config(); // Load environment variables from .env file
 
-const authenticateToken = (req, res, next) => {
+const authenticateToken = async(req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1]; // 'Bearer <token>'
 
@@ -13,7 +13,7 @@ const authenticateToken = (req, res, next) => {
   }
 
   
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  await jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid Token' });
     }
